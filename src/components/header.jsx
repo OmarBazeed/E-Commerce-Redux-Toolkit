@@ -23,7 +23,7 @@ const Header = ()=>{
 <nav className="navbar navbar-expand-lg bg-light MainHeader px-3">
 
     <div className="container-fluid linksParent">
-        <a className="navbar-brand fw-bold fs-3 text-light text-capitalize" href="www.google.com"> <span className="text-danger fs-2 animate">C</span>loths <span className="text-danger fs-2 animate">S</span>tore</a>
+        <a className="navbar-brand fw-bold fs-3 text-light text-capitalize" href="www.google.com"> <span className="text-danger fs-2 animate">C</span>loths <span className="text-danger fs-2 animate">S</span>tore 2022</a>
 
         <button  className="navbar-toggler mb-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded={open} aria-label="Toggle navigation" onClick={(e)=>{
             setOpen(true);
