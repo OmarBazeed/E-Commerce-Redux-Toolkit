@@ -40,17 +40,17 @@ return (
                             <div className='col-sm-12 col-md-6 col-lg-8'>
                                 <div className='card-body'>
                                     <h3 className='card-text'> {oneProduct.title}</h3>
-                                    <p className='text-muted lead'> {oneProduct.description}</p>
-                                    <p className='card-title card-price mb-2 my-3 fw-bold fs-3'> Item Price :   
-                                        <span className="fs-4 text-primary"> {oneProduct.price} $ </span>
+                                    <p className='text-muted'> {oneProduct.description}</p>
+                                    <p className='card-title card-price mb-2 my-3 fw-bold fs-4'> Item Price :   
+                                        <span className="fs-5 text-primary"> {oneProduct.price} $ </span>
                                     </p>
 
                                     <div className="moreDetails">
-                                    <p className="fw-bold fs-3"> Available Pieces : 
-                                    <span className="fw-bold text-primary fs-4">   {randomNOpieces} </span>
+                                    <p className="fw-bold fs-4"> Available Pieces : 
+                                    <span className="fw-bold text-primary fs-5">   {randomNOpieces} </span>
                                     </p>
 
-                                    <p className="fw-bold fs-3"> Available Colors :  <span className="fw-bold text-primary fs-5">{
+                                    <p className="fw-bold fs-4"> Available Colors :  <span className="fw-bold text-primary fs-5">{
                                             (colors.slice(parseInt(Math.random()*colors.length))).length === 1 ? 
                                             'There Is Only The Shown Color' :  randomNOpieces !== 0 ?
                                             (colors.slice(parseInt(Math.random()*colors.length))).map((el)=>{

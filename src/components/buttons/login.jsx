@@ -13,13 +13,14 @@
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect , useState } from 'react';
-import { faFacebook  , faInstagram } from "@fortawesome/free-brands-svg-icons"
+import { faFacebook  , faGoogle, faInstagram } from "@fortawesome/free-brands-svg-icons"
 
 import { NavLink } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { modifyUser } from '../../redux/oneProductSlice';
 import jwt_decode from "jwt-decode";
-export default function Login({open,close}) {
+
+export default function Login({play,notplay}) {
 
     const [user , setUser] = useState({});
     const dispatch = useDispatch();
@@ -29,33 +30,34 @@ export default function Login({open,close}) {
     const handleCallbackResponse = (response)=> {
         var userObj = jwt_decode(response.credential);
         setUser(userObj);
-        document.getElementById('googleSingin').remove();
+        document.getElementById('googleSingin')?.remove();
     }
 
     useEffect(()=>{
-        google.accounts.id.initialize({
-            client_id:"152058930850-fg571of7buitm7cfas1kt5ev81veams2.apps.googleusercontent.com",
-            callback: handleCallbackResponse,
-        });
 
-        google.accounts.id.renderButton(
-            document.getElementById("googleSingin"),
-            {theme:'outline', size:'large'}
-        );
+            google.accounts.id.initialize({
+                client_id:"152058930850-fg571of7buitm7cfas1kt5ev81veams2.apps.googleusercontent.com",
+                callback: handleCallbackResponse,
+            });
 
-        google.accounts.id.prompt();
+            google.accounts.id.renderButton(
+                document.getElementById("googleSingin"),
+                {theme:'outline', size:'large'}
+            );
+
+            google.accounts.id.prompt();
     },[])
 
 return (
     <>
     {
-    !open ? null : (
+    !play ? null : (
     <div className="overlay p-2" id="exampleModal">
             <div className="modal-content">
 
                 <div className="modal-header mb-2">
                 <h5 className="modal-title text-center text-primary fs-4" id="exampleModalLabel">Login Info</h5>
-                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" onClick={ ()=> close(false) }></button>
+                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" onClick={ ()=> notplay(false) }></button>
                 </div>
 
                 <div className="modal-body">
@@ -82,6 +84,9 @@ return (
                         <hr />
                         <hr />
                         <div className='parent' >
+                        {
+                            Object.keys(user).length ?
+                            (
                             <NavLink 
                                 className='btn btn-outline-primary text-center w-100 mb-2 d-flex justify-content-between' 
                                 to='/SigninGoogle' 
@@ -96,9 +101,20 @@ return (
                                 }
 
                                 { Object.keys(user).length ? 
-                                    (<button onClick={()=>setUser({})} className='btn btn-outline-dark text-end'>sign out</button>) : null
+                                    (<button onClick={()=>setUser({})} className='btn btn-outline-dark signOut'>sign out</button>) : null
                                 }
                             </NavLink>
+                            )
+                            :
+                            ( <button
+                                    className='btn btn-outline-primary w-100 mb-2' 
+                                    onClick={()=>{
+                                        dispatch(modifyUser(user))
+                                    }}> 
+                                    <FontAwesomeIcon  icon={faGoogle}/> Google
+                                </button>)
+                        }
+
                         </div>
                         <button className='btn btn-outline-secondary w-100 mb-2'> <FontAwesomeIcon  icon={faFacebook}/> Facebook</button>
                         <button className='btn btn-outline-danger w-100 mb-2'> <FontAwesomeIcon  icon={faInstagram}/> Instagram</button>

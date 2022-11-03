@@ -17,6 +17,7 @@ const Header = ()=>{
 
     const menuRef = useRef();
 
+    const [play , setplay] = useState(false);
 
     return (
 <>
@@ -25,10 +26,10 @@ const Header = ()=>{
     <div className="container-fluid linksParent">
         <a className="navbar-brand fw-bold fs-3 text-light text-capitalize" href="www.google.com"> <span className="text-danger fs-2 animate">C</span>loths <span className="text-danger fs-2 animate">S</span>tore 2022</a>
 
-        <button  className="navbar-toggler mb-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded={open} aria-label="Toggle navigation" onClick={(e)=>{
+        <button  className="navbar-toggler mb-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded={open} aria-label="Toggle navigation" onClick={()=>{
             setOpen(true);
             menuRef.current.classList.toggle("show");
-            e.stopPropagation();
+
         }}>
         <span className="navbar-toggler-icon"></span>
         </button>
@@ -56,12 +57,9 @@ const Header = ()=>{
     <FontAwesomeIcon icon={faCartShopping} /> Cart ({cartArray.length}) </button>
     </NavLink>
 
-    <button className="btn btn-outline-primary myLogin" onClick={(e)=> {
-        setOpen(true);
-        e.stopPropagation();
-    } }> 
+    <button className="btn btn-outline-primary myLogin" onClick={()=>setplay(true)}> 
     <FontAwesomeIcon icon={faRightToBracket} /> Login</button>
-    <Login open={open} close={setOpen} />
+    <Login play={play} notplay={setplay} />
 
 </nav>
 
