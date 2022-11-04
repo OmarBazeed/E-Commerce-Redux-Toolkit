@@ -50,13 +50,15 @@ return (
                                     <span className="fw-bold text-primary fs-5">   {randomNOpieces} </span>
                                     </p>
 
-                                    <p className="fw-bold fs-4"> Available Colors :  <span className="fw-bold text-primary fs-5">{
+                                    <p className="fw-bold fs-4"> Available Colors :  <span className="fw-bold text-primary fs-5">
+                                    {
+                                        
                                             (colors.slice(parseInt(Math.random()*colors.length))).length === 1 ? 
                                             'There Is Only The Shown Color' :  randomNOpieces !== 0 ?
                                             (colors.slice(parseInt(Math.random()*colors.length))).map((el)=>{
                                                 return(
                                                     <button 
-                                                        className ={`btn btn-${el} mx-2`} 
+                                                        className ={`btn btn-${el} mx-2 mb-2`} 
                                                         key={Math.random()}
                                                         onClick={()=> {
                                                             dispatch(addItemsToCart(oneProduct));
@@ -70,7 +72,8 @@ return (
                                                 )
                                             }) :
                                             'This Item Is Not Available We Are Working On Providing It Soon '
-                                        }</span>
+                                        }
+                                        </span>
                                     </p>
                                     </div>
 
