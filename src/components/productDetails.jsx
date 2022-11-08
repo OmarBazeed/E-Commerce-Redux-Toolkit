@@ -10,20 +10,29 @@ import { addItemsToCart } from "../redux/oneProductSlice";
 const ProductDetails = ()=>{
 
     const {productId} = useParams();
-
     const { oneProduct,loading ,error } = useSelector(state=> state.product);
-
     const colors = ['danger','success','secondary','primary','dark'];
-
     const [randomNOpieces,setRandomNOpieces] = useState( parseInt(Math.random() * 10))
-
     const dispatch = useDispatch();
-
     const btnRef = useRef();
+
+
+    const addProductFromCartBtn = ()=>{
+        dispatch(addItemsToCart(oneProduct));
+        randomNOpieces === 0 ?
+        btnRef.current.classList.add("disabled",'opacity-25') : setRandomNOpieces(randomNOpieces - 1);
+        randomNOpieces === 1 && btnRef.current.classList.add("disabled",'opacity-25');
+    }
+    const addProductFromColorsBtn = ()=>{
+        dispatch(addItemsToCart(oneProduct));
+        randomNOpieces === 0 ?
+        btnRef.current.classList.add("disabled",'opacity-25') : setRandomNOpieces(randomNOpieces - 1);
+        randomNOpieces === 1 && btnRef.current.classList.add("disabled",'opacity-25');
+    }
     
     useEffect(()=>{
     FetchingProduct(productId,dispatch);
-    },[btnRef])
+    },[])
     
 
 return (
@@ -50,44 +59,27 @@ return (
                                     <span className="fw-bold text-primary fs-5">   {randomNOpieces} </span>
                                     </p>
 
-                                    <p className="fw-bold fs-4"> Available Colors :  <span className="fw-bold text-primary fs-5">
-                                    {
-                                        
-                                            (colors.slice(parseInt(Math.random()*colors.length))).length === 1 ? 
-                                            'There Is Only The Shown Color' :  randomNOpieces !== 0 ?
-                                            (colors.slice(parseInt(Math.random()*colors.length))).map((el)=>{
-                                                return(
-                                                    <button 
-                                                        className ={`btn btn-${el} mx-2 mb-2`} 
-                                                        key={Math.random()}
-                                                        onClick={()=> {
-                                                            dispatch(addItemsToCart(oneProduct));
-                                                            randomNOpieces === 0 ?
-                                                            btnRef.current.classList.add("disabled",'opacity-25') : setRandomNOpieces(randomNOpieces - 1);
-                                                            randomNOpieces === 1 && btnRef.current.classList.add("disabled",'opacity-25');
-                                                        }}
-                                                        > 
-                                                        {el} 
-                                                    </button>
-                                                )
-                                            }) :
-                                            'This Item Is Not Available We Are Working On Providing It Soon '
+                                    <p className="fw-bold fs-4"> Available Colors :  
+                                    <span className="fw-bold text-primary fs-5">
+                                        {
+                                            
+                                                (colors.slice(parseInt(Math.random()*colors.length))).length === 1 ? 
+                                                'There Is Only The Shown Color' :  
+                                                randomNOpieces !== 0 ?
+                                                (colors.slice(parseInt(Math.random()*colors.length))).map((el)=>{
+                                                    return(
+                                                        <button className ={`btn btn-${el} mx-2 mb-2`} key={Math.random()} onClick={addProductFromColorsBtn}> 
+                                                            {el} 
+                                                        </button>
+                                                    )
+                                                }) : 'This Item Is Not Available We Are Working On Providing It Soon '
                                         }
-                                        </span>
+                                    </span>
                                     </p>
+
                                     </div>
 
-                                    <button 
-                                        className='btn btn-outline-success my-3'
-                                        ref={btnRef} 
-                                        onClick={()=> {
-                                            dispatch(addItemsToCart(oneProduct));
-                                            randomNOpieces === 0 ?
-                                            btnRef.current.classList.add("disabled",'opacity-25') : setRandomNOpieces(randomNOpieces - 1);
-                                            randomNOpieces === 1 && btnRef.current.classList.add("disabled",'opacity-25');
-                                        }
-                                        }>
-                                        Add To Chart
+                                    <button className='btn btn-outline-success my-3' ref={btnRef}  onClick={addProductFromCartBtn}>Add To Chart
                                     </button>
                                 </div>
                             </div>

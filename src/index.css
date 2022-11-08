@@ -144,6 +144,13 @@ code {
     }
 }
 
+@media screen and (max-width:574px) {
+    .priceDiv div {
+        margin: auto;
+        width: auto !important;
+    }
+}
+
 .App-header {
     background-color: #282c34;
     min-height: 100vh;
