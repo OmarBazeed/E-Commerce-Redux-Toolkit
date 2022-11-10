@@ -34,7 +34,6 @@ export default function Login({play,notplay}) {
     }
 
     useEffect(()=>{
-
             google.accounts.id.initialize({
                 client_id:"152058930850-fg571of7buitm7cfas1kt5ev81veams2.apps.googleusercontent.com",
                 callback: handleCallbackResponse,
@@ -49,7 +48,7 @@ export default function Login({play,notplay}) {
     },[])
 
 return (
-    <>
+    <React.Fragment>
     {
     !play ? null : (
     <div className="overlay p-2" id="exampleModal">
@@ -104,15 +103,8 @@ return (
                                     (<button onClick={()=>setUser({})} className='btn btn-outline-dark signOut'>sign out</button>) : null
                                 }
                             </NavLink>
-                            )
-                            :
-                            ( <button
-                                    className='btn btn-outline-primary w-100 mb-2' 
-                                    onClick={()=>{
-                                        dispatch(modifyUser(user))
-                                    }}> 
-                                    <FontAwesomeIcon  icon={faGoogle}/> Google
-                                </button>)
+                            ) :
+                            <button className='btn btn-outline-primary w-100 mb-2' onClick={ ()=>dispatch(modifyUser(user)) }> <FontAwesomeIcon  icon={faGoogle}/> Google </button>
                         }
 
                         </div>
@@ -126,7 +118,7 @@ return (
 
     )
 }
-</>
+</React.Fragment>
 )
 }
 

@@ -12,7 +12,7 @@ return (
             <div>
                 <p> {userData.name} </p>
                 <p> {userData.email} </p>
-                <img src={userData.picture} alt='...' />
+                <img src={userData.picture} alt='Google_Image' />
             </div>
             )
             :

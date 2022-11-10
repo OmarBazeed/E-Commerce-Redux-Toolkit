@@ -42,25 +42,25 @@ return (
         (
             <div className='container'>
                 <div className='card'>
-                    <div className='row g-0'>
-                            <div className="col-sm-12 col-md-6 col-lg-4 ">
-                                    <img src={oneProduct.image} alt='...' className='img-fluid  rounded-start' />
+                    <div className='row g-0 align-items-center'>
+                            <div className="col-sm-12 col-md-6 col-lg-4 text-center  ">
+                                    <img src={oneProduct.image} alt='...' className='img-fluid  rounded-start oneCardImg' />
                             </div>
                             <div className='col-sm-12 col-md-6 col-lg-8'>
                                 <div className='card-body'>
-                                    <h3 className='card-text'> {oneProduct.title}</h3>
-                                    <p className='text-muted'> {oneProduct.description}</p>
-                                    <p className='card-title card-price mb-2 my-3 fw-bold fs-4'> Item Price :   
+                                    <h4 className='card-text'> {oneProduct.title}</h4>
+                                    <p className='text-muted descriptionText'> {oneProduct.description}</p>
+                                    <p className='card-title card-price mb-2 my-3 fs-5'> Item Price :   
                                         <span className="fs-5 text-primary"> {oneProduct.price} $ </span>
                                     </p>
 
                                     <div className="moreDetails">
-                                    <p className="fw-bold fs-4"> Available Pieces : 
-                                    <span className="fw-bold text-primary fs-5">   {randomNOpieces} </span>
+                                    <p className="fs-5"> Available Pieces : 
+                                    <span className="text-primary fs-5">   {randomNOpieces} </span>
                                     </p>
 
-                                    <p className="fw-bold fs-4"> Available Colors :  
-                                    <span className="fw-bold text-primary fs-5">
+                                    <p className="fs-5"> Available Colors  <br />   
+                                    <span className="text-primary fs-5">
                                         {
                                             
                                                 (colors.slice(parseInt(Math.random()*colors.length))).length === 1 ? 
@@ -68,18 +68,18 @@ return (
                                                 randomNOpieces !== 0 ?
                                                 (colors.slice(parseInt(Math.random()*colors.length))).map((el)=>{
                                                     return(
-                                                        <button className ={`btn btn-${el} mx-2 mb-2`} key={Math.random()} onClick={addProductFromColorsBtn}> 
+                                                        <button className ={`btn btn-${el} me-1 mb-2`} key={Math.random()} onClick={addProductFromColorsBtn}> 
                                                             {el} 
                                                         </button>
                                                     )
-                                                }) : 'This Item Is Not Available We Are Working On Providing It Soon '
+                                                }) : 'Not Available ! Are Working On Providing It Soon '
                                         }
                                     </span>
                                     </p>
 
                                     </div>
 
-                                    <button className='btn btn-outline-success my-3' ref={btnRef}  onClick={addProductFromCartBtn}>Add To Chart
+                                    <button className='btn btn-outline-success mt-5' ref={btnRef}  onClick={addProductFromCartBtn}>Add To Chart
                                     </button>
                                 </div>
                             </div>

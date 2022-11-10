@@ -52,7 +52,8 @@ code {
 
 .navbar {
     background-color: #353b48 !important;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
+    overflow: hidden;
 }
 
 .navbar-nav li a {
@@ -172,5 +173,32 @@ code {
     }
     to {
         transform: rotate(360deg);
+    }
+}
+
+
+/* Header Buttons*/
+
+@media screen and (max-width:500px) {
+    .headerBtns {
+        width: 100%;
+        margin-top: 10px;
+    }
+    .headerBtns button {
+        width: 120px;
+    }
+    /* Single Product Card Img */
+    .card .oneCardImg {
+        height: 300px
+    }
+    .descriptionText {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width:320px) {
+    .headerBtns button {
+        width: 96px;
+        font-size: 14px;
     }
 }

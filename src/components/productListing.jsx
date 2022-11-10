@@ -15,9 +15,20 @@ const ProductListing = ()=> {
     },[])
 
     return (
-            <div className="th-ProductListing">
+            <div className="d-flex">
 
-                <ProductComponent />
+                <div className="sideBar" style={{width:'200px',height:'100vh',background:'black',color:'white',marginTop:'-20px'}}>
+                    <ul>
+                        <li> one</li>
+                        <li> one</li>
+                        <li> one</li>
+                        <li> one</li>
+                        <li> one</li>
+                    </ul>
+                </div>
+                <div className="ProductsBody w-100">
+                    <ProductComponent />
+                </div>
 
             </div>
         )
