@@ -35,13 +35,6 @@ code {
     padding: 20px 5px;
 }
 
-@media (max-width:400px) {
-    .myList {
-        font-size: 10px;
-        justify-content: center;
-    }
-}
-
 .mainDiv {
     transition: .3s;
 }
@@ -49,6 +42,13 @@ code {
 .mainDiv:hover {
     transform: translateY(-7px);
 }
+
+.card-body .float-end button {
+    padding: 6px 20px;
+}
+
+
+/**/
 
 .navbar {
     background-color: #353b48 !important;
@@ -112,12 +112,6 @@ code {
     border-radius: 25px;
 }
 
-@media (max-width: 960px) {
-    #navbarSupportedContent {
-        text-align: center
-    }
-}
-
 .mainContent div {
     width: 100% !important;
 }
@@ -128,28 +122,6 @@ code {
 
 .mainContent div p span {
     font-size: 15px !important;
-}
-
-@media screen and (max-width: 320px) {
-    .navbar-brand {
-        letter-spacing: 0;
-    }
-}
-
-@media screen and (max-width: 375px) {
-    #exampleModal {
-        width: 300px !important;
-    }
-    #exampleModal .signOut {
-        font-size: 12px;
-    }
-}
-
-@media screen and (max-width:574px) {
-    .priceDiv div {
-        margin: auto;
-        width: auto !important;
-    }
 }
 
 .App-header {
@@ -177,12 +149,137 @@ code {
 }
 
 
+/**************/
+
+.sideBar {
+    box-shadow: 2px 3px 4px gray;
+    padding: 6px 5px;
+    transition: .5s;
+    position: relative;
+    background-color: #282c34;
+}
+
+.SideBar-Content {
+    position: sticky;
+    top: 75px;
+    left: 0;
+    transition: .5s;
+}
+
+.sideBarButton1,
+.sideBarButton2 {
+    transition: .5s;
+    z-index: 100000;
+}
+
+.sideBarButton2 {
+    position: fixed;
+    top: 75px;
+    left: 1px;
+}
+
+.sideBar li {
+    background-color: #353b48;
+    margin: 5px 0;
+    padding: 5px 7px;
+    border-radius: 12px;
+    transition: 1s;
+}
+
+.sideBar li a {
+    text-decoration: none;
+    color: tomato;
+    font-size: 20px;
+}
+
+.hide {
+    opacity: 0;
+}
+
+.SHow {
+    opacity: 1;
+}
+
+
+/**/
+
+.dashboardCard {
+    width: 360px;
+}
+
+
+/* All Application Media Query */
+
+
 /* Header Buttons*/
 
-@media screen and (max-width:500px) {
+@media screen and (max-width:320px) {
+    .headerBtns button {
+        width: 96px !important;
+        font-size: 14px;
+    }
+    .navbar-brand {
+        letter-spacing: 0;
+    }
+    .dashboardCard {
+        width: 300px!important;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    #exampleModal {
+        width: 300px !important;
+    }
+    #exampleModal .signOut {
+        font-size: 12px;
+    }
+}
+
+@media (max-width:500px) {
+    .myList {
+        font-size: 10px;
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width:574px) {
+    .priceDiv div {
+        margin: auto;
+        width: auto !important;
+    }
+    /*CardBody Btns*/
+    .mainDiv .card-body {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+    .sideBar ul li a {
+        font-size: 15px;
+    }
+    .sideBarButton2,
+    .sideBarButton1 {
+        width: 30px;
+        height: 30px;
+        line-height: 10px;
+        padding-left: 10px;
+    }
+    .sideBarButton2>*,
+    .sideBarButton1>* {
+        font-size: 12px;
+    }
+    .sideBarButton2 {
+        top: 112px !important;
+    }
+    .card-body .float-end {
+        margin-top: 7px !important;
+    }
+}
+
+@media screen and (max-width:990px) {
     .headerBtns {
         width: 100%;
         margin-top: 10px;
+        justify-content: space-around;
     }
     .headerBtns button {
         width: 120px;
@@ -194,11 +291,16 @@ code {
     .descriptionText {
         font-size: 12px;
     }
-}
-
-@media screen and (max-width:320px) {
-    .headerBtns button {
-        width: 96px;
-        font-size: 14px;
+    #navbarSupportedContent {
+        text-align: center
+    }
+    .sideBarButton2 {
+        top: 118px
+    }
+    .SideBar-Content {
+        top: 116px;
     }
 }
+
+
+/**/

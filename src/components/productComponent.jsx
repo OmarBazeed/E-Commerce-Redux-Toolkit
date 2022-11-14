@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircleInfo, faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faCartPlus, faCircleInfo, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { addItemsToCart } from "../redux/oneProductSlice";
 
 const ProductComponent = ()=>{
@@ -23,9 +23,11 @@ const ProductComponent = ()=>{
                         <p className="card-text text-secondary">{(el.title).slice(0,38)}</p>
                         <p className="card-title text-primary fw-bold fs-4">{el.price}$</p>
                         <Link to={`/product/${el.id}`} className='text-decoration-none' >
-                        <button className="btn btn-outline-info"> <FontAwesomeIcon icon={faCircleInfo} /> More Details </button>
+                        <button className="btn btn-outline-info"> <FontAwesomeIcon icon={faCircleInfo} />  Details </button>
                         </Link>
-                        <button className="btn btn-outline-danger float-end" onClick={()=> handleAdd(el)}> <FontAwesomeIcon icon={faPlus} /> Add To Cart </button>
+                        <div className="float-end">
+                            <button className="btn btn-outline-danger " onClick={()=> handleAdd(el)}> <FontAwesomeIcon icon={faCartPlus} /> Add </button>
+                        </div>
                     </div>
                 </div>
             </div>

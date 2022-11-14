@@ -50,7 +50,7 @@ const Header = ()=>{
             </div>
         </div>
 
-        <div className="d-flex align-items-center justify-content-center headerBtns">
+        <div className="d-flex align-items-center headerBtns">
         <NavLink to='/cart'>
             <button className='btn btn-outline-primary myCart me-2'> <FontAwesomeIcon icon={faCartShopping} /> Cart ({cartArray.length}) </button>
         </NavLink>

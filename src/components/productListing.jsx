@@ -1,9 +1,10 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import ProductComponent from "./productComponent";
-
 import {FetchingProducts} from "../redux/productsAction";
 import { useEffect } from "react";
+
+
 
 
 const ProductListing = ()=> {
@@ -15,23 +16,12 @@ const ProductListing = ()=> {
     },[])
 
     return (
-            <div className="d-flex">
+<React.Fragment>
 
-                <div className="sideBar" style={{width:'200px',height:'100vh',background:'black',color:'white',marginTop:'-20px'}}>
-                    <ul>
-                        <li> one</li>
-                        <li> one</li>
-                        <li> one</li>
-                        <li> one</li>
-                        <li> one</li>
-                    </ul>
-                </div>
-                <div className="ProductsBody w-100">
-                    <ProductComponent />
-                </div>
+            <ProductComponent />
 
-            </div>
-        )
+</React.Fragment>
+)
 }
 
 export default ProductListing ;

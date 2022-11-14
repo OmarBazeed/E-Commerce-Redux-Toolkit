@@ -25,7 +25,7 @@ const handleLogout = async()=>{
 
     <div className='container d-flex flex-column align-items-center' style={{minHeight:'calc(100vh - 120px)'}} >
     
-        <div className="card" style={{maxWidth:'380px'}}>
+        <div className="card dashboardCard">
             <div className="card-body">
                 <h3 className="card-title text-center">Sign Up</h3>
                 {error && <Alert variant='danger'>{error}</Alert>}

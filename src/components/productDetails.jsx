@@ -36,7 +36,7 @@ const ProductDetails = ()=>{
     
 
 return (
-    <div className="">
+    <div className="m-auto">
     { loading ? <p className="text-center text-success fs-4 fw-bold"> loading ...</p> : 
         error ? <p className="text-center text-danger fs-4 fw-bold"> OOPS !  Something Went Wrong </p> :
         (

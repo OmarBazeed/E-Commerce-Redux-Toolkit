@@ -33,7 +33,7 @@ const handleSubmit = async (e)=>{
 
     <div className='container d-flex justify-content-center align-items-center flex-column' style={{minHeight:'calc(100vh - 120px)'}} >
     
-        <div className="card" style={{minWidth:'400px'}}>
+        <div className="card dashboardCard">
             <div className="card-body">
                 <h3 className="card-title text-center">Log In</h3>
 
