@@ -52,36 +52,15 @@ return (
     {
     !play ? null : (
     <div className="overlay p-2" id="exampleModal">
+
             <div className="modal-content">
 
                 <div className="modal-header mb-2">
-                <h5 className="modal-title text-center text-primary fs-4" id="exampleModalLabel">Login Info</h5>
-                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" onClick={ ()=> notplay(false) }></button>
+                    <h5 className="modal-title fs-4 mx-auto text-light" id="exampleModalLabel">Login Info</h5>
+                    <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" onClick={ ()=> notplay(false) }></button>
                 </div>
 
                 <div className="modal-body">
-                    <form>
-                        <div className="mb-3">
-                        <label htmlFor="exampleInputEmail1" className="form-label fw-bold">Email address</label>
-                        <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>
-                        <div id="emailHelp" className="form-text text-primary">We'll never share your email with anyone else.</div>
-                        </div>
-
-                        <div className="mb-3">
-                        <label htmlFor="exampleInputPassword1" className="form-label fw-bold">Password</label>
-                        <input type="password" className="form-control" id="exampleInputPassword1" />
-                        </div>
-                        
-                        <div className="mb-3 form-check">
-                        <input type="checkbox" className="form-check-input" id="exampleCheck1" />
-                        <label className="form-check-label" htmlFor="exampleCheck1">Check me out</label>
-                        </div>
-                        <button type="submit" className="btn btn-outline-success w-100">Submit</button>
-                    </form>
-
-
-                        <hr />
-                        <hr />
                         <div className='parent' >
                         {
                             Object.keys(user).length ?
@@ -96,7 +75,7 @@ return (
 
                                 <div id='googleSingin'> </div>
                                 {
-                                    Object.keys(user).length ? (<p> Click Here : {user.name} </p>) : null
+                                    Object.keys(user).length ? (<p className='mt-2'> Click Here : {user.name} </p>) : null
                                 }
 
                                 { Object.keys(user).length ? 
@@ -104,13 +83,12 @@ return (
                                 }
                             </NavLink>
                             ) :
-                            <button className='btn btn-outline-primary w-100 mb-2' onClick={ ()=>dispatch(modifyUser(user)) }> <FontAwesomeIcon  icon={faGoogle}/> Google </button>
+                            <button className='btn btn-outline-primary w-100 mb-2' onClick={()=>dispatch(modifyUser(user)) }> <FontAwesomeIcon  icon={faGoogle}/> Google </button>
                         }
 
                         </div>
                         <button className='btn btn-outline-secondary w-100 mb-2'> <FontAwesomeIcon  icon={faFacebook}/> Facebook</button>
                         <button className='btn btn-outline-danger w-100 mb-2'> <FontAwesomeIcon  icon={faInstagram}/> Instagram</button>
-
                 </div>
 
             </div>
