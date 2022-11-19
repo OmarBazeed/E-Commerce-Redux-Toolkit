@@ -38,7 +38,7 @@ const Header = ()=>{
                     <NavLink className="nav-link fs-5 text-danger" aria-current="page" to="/">Home</NavLink>
                     </li>
                     <li className="nav-item me-3">
-                    <NavLink className="nav-link fs-5 text-danger" to="*">Contact</NavLink>
+                    <NavLink className="nav-link fs-5 text-danger" to="/contact">Contact</NavLink>
                     </li>
                 </ul>
             </div>

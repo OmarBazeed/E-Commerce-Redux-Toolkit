@@ -36,7 +36,7 @@ useEffect(()=>{
         })
 })
 
-    return (
+    return ( 
 <React.Fragment>
 
     <button className="btn btn-outline-info rounded-circle sideBarButton2" onClick={handleClickOpen}>
@@ -51,21 +51,21 @@ useEffect(()=>{
                 </button>
             </div>
             <ul className="list-group">
-                <li className="list-item">
-                    <Link to='/'> Home</Link>
-                </li>
-                <li className="list-item">
-                    <Link to='/men-cloths'> Men Cloths</Link>
-                </li>
-                <li className="list-item">
-                    <Link to='/women-cloths'> Women Cloths</Link>
-                </li>
-                <li className="list-item">
-                    <Link to='kids-cloths'> Kids</Link>
-                </li>
-                <li className="list-item">
-                    <Link to=''> Search</Link>
-                </li>
+                <Link className="list-item" to='/'>
+                  Home
+                </Link>
+                <Link className="list-item" to='/men-cloths'>
+                     Men Cloths
+                </Link>
+                <Link className="list-item" to='/women-cloths'>
+                    Women Cloths
+                </Link>
+                <Link className="list-item"  to='kids-cloths'>
+                     Kids
+                </Link>
+                <Link className="list-item" to=''>
+                     Search
+                </Link>
             </ul>
         </div>
     </div>

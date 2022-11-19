@@ -22,7 +22,7 @@ const WomenCloths = () => {
                   <img src={el.url} alt="..." className="img-fluid img-thumbnail myCardImage" style={{height:'470px'}}/>
 
                   <div className="card-body">
-                      <p className="card-text">{(el.title).slice(0,30)}</p>
+                      <p className="card-text text-capitalize">{(el.title).slice(0,30)}</p>
                       <p className="text-light fw-bold fs-4 productPrice text-center">{el.price} $</p>
 
                       <Link to={`/women-cloths/${el.id}`} className='text-decoration-none' >

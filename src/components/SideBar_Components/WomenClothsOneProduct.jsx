@@ -40,12 +40,12 @@ return (
           <div className='container'>
               <div className='card'>
                   <div className='row g-0 align-items-center'>
-                          <div className="col-sm-12 col-md-6 col-lg-4 text-center  ">
+                          <div className="col-sm-12 col-md-6 col-lg-4 text-center">
                                   <img src={selectedProduct[0].url} alt='...' className='img-fluid  rounded-start oneCardImg' height='500px' />
                           </div>
                           <div className='col-sm-12 col-md-6 col-lg-8'>
                               <div className='card-body'>
-                                  <h4 className='card-text'> {selectedProduct[0].title}</h4>
+                                  <h4 className='card-text text-capitalize'> {selectedProduct[0].title}</h4>
                                   <p className='text-muted descriptionText'> {selectedProduct[0].description}</p>
                                   <p className='card-title card-price mb-2 my-3 fs-5'> Item Price :   
                                       <span className="fs-5 text-primary"> {selectedProduct[0].price} $ </span>

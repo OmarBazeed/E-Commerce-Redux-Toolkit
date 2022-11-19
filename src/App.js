@@ -7,6 +7,7 @@ import ProductListing from './components/Home_Components/productListing';
 import NotFound from './components/Home_Components/notFound';
 import Cart from './components/buttons/cart';
 import PersonalDataWithGoogle from './components/Home_Components/personalDataWithGoogle';
+import Contact from './components/Home_Components/Contact';
 
 // Adding Authentication Components To The Bsic Routes Of The App ==> Route For Each Element (افضل حاجه انهم تيعملوا فى التطبيق من برا خالص و ليس جوا كومبوننت معين و جواه شويه رووتس)
 import Login from './components/logInConfirmation/Login';
@@ -44,6 +45,7 @@ return (
                     <Route path="*" element={<NotFound />} /> 
                     <Route path="/cart" element={<Cart />} /> 
                     <Route path='/SigninGoogle' element={<PersonalDataWithGoogle />} />
+                    <Route path='/contact' element={<Contact />} />
 
                     {/* Side Bar Components*/}
                     <Route path='/men-cloths' element={<MenCloths />} />
