@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import ProductComponent from "./productComponent";
-import {FetchingProducts} from "../redux/productsAction";
+import {FetchingProducts} from "../../redux/productsAction";
 import { useEffect } from "react";
 
 

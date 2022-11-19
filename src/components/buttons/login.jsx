@@ -55,13 +55,13 @@ return (
 
             <div className="modal-content">
 
-                <div className="modal-header mb-2">
+                <div className="modal-header mb-5">
                     <h5 className="modal-title fs-4 mx-auto text-light" id="exampleModalLabel">Login Info</h5>
                     <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" onClick={ ()=> notplay(false) }></button>
                 </div>
 
                 <div className="modal-body">
-                        <div className='parent' >
+                        <div className='parent'>
                         {
                             Object.keys(user).length ?
                             (
@@ -69,17 +69,18 @@ return (
                                 className='btn btn-outline-primary text-center w-100 mb-2 d-flex justify-content-between' 
                                 to='/SigninGoogle' 
                                 onClick={()=>{
-                                    dispatch(modifyUser(user))
+                                    dispatch(modifyUser(user));
+                                    notplay(false)
                                 }}
                                 >
 
                                 <div id='googleSingin'> </div>
                                 {
-                                    Object.keys(user).length ? (<p className='mt-2'> Click Here : {user.name} </p>) : null
+                                    Object.keys(user).length ? (<p className='mt-2'> Go To Your Account </p>) : null
                                 }
 
                                 { Object.keys(user).length ? 
-                                    (<button onClick={()=>setUser({})} className='btn btn-outline-dark signOut'>sign out</button>) : null
+                                    (<button onClick={ ()=>{setUser({}); window.location.reload()} } className='btn btn-outline-dark signOut'>sign out</button>) : null
                                 }
                             </NavLink>
                             ) :

@@ -1,41 +1,39 @@
-import React, { useRef, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
-import { FetchingProduct } from "../redux/productsAction";
-import { useEffect } from 'react';
+import React, { useRef, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import { addItemsToCart } from '../../redux/oneProductSlice';
+import products from '../JSON_Files/MenCloths.json';
 
-import { addItemsToCart } from "../redux/oneProductSlice";
-
-
-const ProductDetails = ()=>{
+const MenClothsOneProduct = () => {
 
     const {productId} = useParams();
-    const { oneProduct,loading ,error } = useSelector(state=> state.product);
+
+    const selectedProduct = products.filter((el)=>{
+            return el.id === parseInt(productId)
+        })
+
+    const {loading ,error } = useSelector(state=> state.product);
     const colors = ['danger','success','secondary','primary','dark'];
     const [randomNOpieces,setRandomNOpieces] = useState( parseInt(Math.random() * 10))
     const dispatch = useDispatch();
     const btnRef = useRef();
-
-
+    
+    
     const addProductFromCartBtn = ()=>{
-        dispatch(addItemsToCart(oneProduct));
+        dispatch(addItemsToCart(selectedProduct[0]));
         randomNOpieces === 0 ?
         btnRef.current.classList.add("disabled",'opacity-25') : setRandomNOpieces(randomNOpieces - 1);
         randomNOpieces === 1 && btnRef.current.classList.add("disabled",'opacity-25');
     }
+
     const addProductFromColorsBtn = ()=>{
-        dispatch(addItemsToCart(oneProduct));
+        dispatch(addItemsToCart(selectedProduct[0]));
         randomNOpieces === 0 ?
         btnRef.current.classList.add("disabled",'opacity-25') : setRandomNOpieces(randomNOpieces - 1);
-        randomNOpieces === 1 && btnRef.current.classList.add("disabled",'opacity-25');
     }
-    
-    useEffect(()=>{
-    FetchingProduct(productId,dispatch);
-    },[])
-    
 
 return (
+
     <div className="m-auto">
     { loading ? <p className="text-center text-success fs-4 fw-bold"> loading ...</p> : 
         error ? <p className="text-center text-danger fs-4 fw-bold"> OOPS !  Something Went Wrong </p> :
@@ -44,14 +42,14 @@ return (
                 <div className='card'>
                     <div className='row g-0 align-items-center'>
                             <div className="col-sm-12 col-md-6 col-lg-4 text-center  ">
-                                    <img src={oneProduct.image} alt='...' className='img-fluid  rounded-start oneCardImg' />
+                                    <img src={selectedProduct[0].url} alt='...' className='img-fluid  rounded-start oneCardImg' height='500px' />
                             </div>
                             <div className='col-sm-12 col-md-6 col-lg-8'>
                                 <div className='card-body'>
-                                    <h4 className='card-text'> {oneProduct.title}</h4>
-                                    <p className='text-muted descriptionText'> {oneProduct.description}</p>
+                                    <h4 className='card-text'> {selectedProduct[0].title}</h4>
+                                    <p className='text-muted descriptionText'> {selectedProduct[0].description}</p>
                                     <p className='card-title card-price mb-2 my-3 fs-5'> Item Price :   
-                                        <span className="fs-5 text-primary"> {oneProduct.price} $ </span>
+                                        <span className="fs-5 text-primary"> {selectedProduct[0].price} $ </span>
                                     </p>
 
                                     <div className="moreDetails">
@@ -89,7 +87,8 @@ return (
         )
     }
     </div>
-    )
+
+)
 }
 
-export default ProductDetails ;
+export default MenClothsOneProduct;

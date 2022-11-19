@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faRightToBracket, faUserPlus } from "@fortawesome/free-solid-svg-icons";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
-import Login from "./buttons/login";
+import Login from "../buttons/login";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { useRef } from "react";
@@ -40,12 +40,6 @@ const Header = ()=>{
                     <li className="nav-item me-3">
                     <NavLink className="nav-link fs-5 text-danger" to="*">Contact</NavLink>
                     </li>
-                    <li className="nav-item me-3">
-                    <NavLink className="nav-link fs-5 text-danger" to="/gfnfg">Help</NavLink>
-                    </li>
-                    <li className="nav-item me-3">
-                    <NavLink className="nav-link fs-5 text-danger" to={`/product/${random}`}>Product</NavLink>
-                    </li>
                 </ul>
             </div>
         </div>
@@ -59,7 +53,7 @@ const Header = ()=>{
             <button className='btn btn-outline-primary myCart me-2'> <FontAwesomeIcon icon={faUserPlus} /> Sign Up </button>
         </NavLink>
 
-        <button className="btn btn-outline-primary myLogin" onClick={()=>setplay(true)}> <FontAwesomeIcon icon={faRightToBracket} /> Login </button>
+        <button className="btn btn-outline-primary myLogin" onClick={()=>setplay(true)}> <FontAwesomeIcon icon={faRightToBracket} /> Sync</button>
         </div>
 
         <Login play={play} notplay={setplay} />

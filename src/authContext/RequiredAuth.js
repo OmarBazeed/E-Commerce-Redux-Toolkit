@@ -4,18 +4,18 @@ import { authContext } from './AuthContext';
 
 
 const RequiredAuth = (props) => {
-    const {currentUser} = useContext(authContext);
+    const { currentUser } = useContext(authContext);
     const location = useLocation();
 
-    if(!currentUser){
-        return <Navigate    to='/login' 
-                            state={
-                            {path: location.pathname}
-                        }
-                />           
+    if (!currentUser) {
+        return <Navigate to = '/login'
+        state = {
+            { path: location.pathname }
+        }
+        />           
     }
-    
-return props.children
+
+    return props.children
 }
 
 export default RequiredAuth;

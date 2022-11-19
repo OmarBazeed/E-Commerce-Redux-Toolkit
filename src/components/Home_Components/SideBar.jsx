@@ -11,6 +11,7 @@ const SideBar = () => {
         document.querySelector('.sideBarButton1').classList.toggle('SHow');
         document.querySelector('.sideBar').style.transform='translateX(-200px)';
         document.querySelector('.sideBar').style.display='none';
+
     }
     const handleClickOpen =()=>{
         document.querySelector('.sideBarButton2').classList.toggle('hide');
@@ -42,7 +43,7 @@ useEffect(()=>{
     <FontAwesomeIcon icon={faBars}  />
     </button>
 
-    <div className="sideBar" style={{width:'200px',color:'black',marginTop:'-20px',transform:'translateX(-200px)'}}>
+    <div className="sideBar" style={{width:'200px',color:'black',marginTop:'-20px',transform:'translateX(-200px)',display:'none'}}>
         <div className='SideBar-Content'>
             <div className='text-end mb-1'>
                 <button className="btn btn-outline-danger rounded-circle sideBarButton1 hide text-end" onClick={handleClickClose}>
@@ -54,13 +55,13 @@ useEffect(()=>{
                     <Link to='/'> Home</Link>
                 </li>
                 <li className="list-item">
-                    <Link to=''> Men Cloths</Link>
+                    <Link to='/men-cloths'> Men Cloths</Link>
                 </li>
                 <li className="list-item">
-                    <Link to=''> Women Cloths</Link>
+                    <Link to='/women-cloths'> Women Cloths</Link>
                 </li>
                 <li className="list-item">
-                    <Link to=''> Kids</Link>
+                    <Link to='kids-cloths'> Kids</Link>
                 </li>
                 <li className="list-item">
                     <Link to=''> Search</Link>

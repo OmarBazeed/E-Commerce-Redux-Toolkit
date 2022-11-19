@@ -2,8 +2,8 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCartPlus, faCircleInfo, faPlus } from "@fortawesome/free-solid-svg-icons";
-import { addItemsToCart } from "../redux/oneProductSlice";
+import { faArrowRight, faCartPlus} from "@fortawesome/free-solid-svg-icons";
+import { addItemsToCart } from "../../redux/oneProductSlice";
 
 const ProductComponent = ()=>{
 
@@ -19,15 +19,19 @@ const ProductComponent = ()=>{
             <div key={el.id}  className='cole-xs-12 col-md-6 col-lg-4 col-xl-3 mb-4 mainDiv'>
                 <div className="card">
                     <img src={el.image} alt="..." className="img-fluid img-thumbnail myCardImage" style={{height:'470px'}}/>
+
                     <div className="card-body">
-                        <p className="card-text text-secondary">{(el.title).slice(0,38)}</p>
-                        <p className="card-title text-primary fw-bold fs-4">{el.price}$</p>
+                        <p className="card-text">{(el.title).slice(0,30)}</p>
+                        <p className="text-light fw-bold fs-4 productPrice text-center">{el.price} $</p>
+
                         <Link to={`/product/${el.id}`} className='text-decoration-none' >
-                        <button className="btn btn-outline-info"> <FontAwesomeIcon icon={faCircleInfo} />  Details </button>
+                        <button className="btn btn-outline-secondary detailsBtn"> Details  <FontAwesomeIcon icon={faArrowRight} />  </button>
                         </Link>
+
                         <div className="float-end">
-                            <button className="btn btn-outline-danger " onClick={()=> handleAdd(el)}> <FontAwesomeIcon icon={faCartPlus} /> Add </button>
+                            <button className="btn btn-outline-primary " onClick={()=> handleAdd(el)}> <FontAwesomeIcon icon={faCartPlus} /> Add </button>
                         </div>
+
                     </div>
                 </div>
             </div>

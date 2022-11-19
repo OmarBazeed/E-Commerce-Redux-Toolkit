@@ -40,7 +40,7 @@ const handleLogout = async()=>{
           <Link  to='/login'  className='btn btn-primary' onClick={handleLogout}> Log Out </Link>
         </div>
         
-        <div>
+        <div className='w-100'>
           <Cart />
         </div>
     

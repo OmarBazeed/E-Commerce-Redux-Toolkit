@@ -7,6 +7,7 @@ body {
 
 * {
     user-select: none;
+    list-style-type: none;
 }
 
 code {
@@ -104,12 +105,13 @@ code {
     top: 35%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: linear-gradient(to right, #20002c, #cbb4d4);
+    background: linear-gradient(to right, #2c3e50, #fd746c);
     width: 410px;
     z-index: 99;
     opacity: 1;
     border-radius: 25px;
     padding: 15px !important;
+    height: 300px
 }
 
 .mainContent div {
@@ -200,12 +202,47 @@ code {
     opacity: 1;
 }
 
+.dashboardCard {
+    width: 400px;
+}
+
 
 /**/
 
-.dashboardCard {
-    width: 360px;
+.detailsBtn svg {
+    animation: movingRight infinite .7s ease-in-out alternate;
 }
+
+@keyframes movingRight {
+    from {
+        transform: translateX(0px);
+    }
+    to {
+        transform: translateX(3px);
+    }
+}
+
+.productPrice {
+    background: linear-gradient(to right, #41295a, #2f0743);
+    border-radius: 0 0 50px 50px;
+}
+
+.totalCostDiv {
+    padding: 10px;
+    width: fit-content;
+    border-radius: 5px 10px;
+    color: white;
+}
+
+.ConfirmBtn,
+.totalCostDiv {
+    background: linear-gradient(to right, #41295a, #2f0743);
+    font-weight: bold;
+    filter: drop-shadow(2px 2px 3px black);
+}
+
+
+/*************/
 
 
 /* All Application Media Query */
@@ -222,7 +259,7 @@ code {
         letter-spacing: 0;
     }
     .dashboardCard {
-        width: 300px!important;
+        width: 221px!important;
     }
 }
 
@@ -236,6 +273,9 @@ code {
     }
     #exampleModal .signOut {
         font-size: 12px;
+    }
+    .dashboardCard {
+        width: 280px;
     }
 }
 
@@ -298,6 +338,3 @@ code {
         top: 116px;
     }
 }
-
-
-/**/
