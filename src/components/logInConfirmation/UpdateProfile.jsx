@@ -20,19 +20,20 @@ const handleSubmit =(e)=>{
   if(passwordRef.current.value !== passwordConfirmationRef.current.value){ return setError('passwords do not match')}
 
   const promises = [];
-  setError('')
+  setError(false)
   setLoading(true);
 
   if(currentUser.email !== emailRef.current.value ){
-    console.log(currentUser.email , emailRef.current.value)
-    console.log(currentUser)
     promises.push(updateUserEmail(emailRef.current.value))
   }
   if(passwordRef.current.value){
     promises.push(updateUserPassword(passwordRef.current.value))
   }
 
-  Promise.all(promises).then(()=>{navigate('/dashboard')}).catch(()=>{setError('Failed To Update Profile')}).finally(()=>{setLoading(false)})
+  Promise.all(promises)
+  .then(()=>{navigate('/dashboard')})
+  .catch(()=>{setError('Failed To Update Profile')})
+  .finally(()=>{setLoading(false)})
 
 }
 
@@ -52,7 +53,7 @@ const handleSubmit =(e)=>{
 
                     <div className="mb-3">
                     <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
-                    <input type="email" ref={emailRef} className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" defaultValue={currentUser.email} />
+                    <input type='text'  ref = {emailRef} className="form-control mb-3" placeholder="Enter your email" id='exampleInputEmail1' name='e-mail' defaultValue={currentUser.email} />
                     </div>
 
                     <div className="mb-3">
