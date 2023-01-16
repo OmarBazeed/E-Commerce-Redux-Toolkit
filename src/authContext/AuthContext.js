@@ -45,7 +45,7 @@ const logOut = ()=>{
     return signOut(auth)
 }
 const updateUserEmail = (email)=>{
-    return updateEmail(auth.currentUser, email)
+     updateEmail(auth.currentUser, email)
 }
 const updateUserPassword = (password)=>{
     return  updatePassword(auth.currentUser, password)

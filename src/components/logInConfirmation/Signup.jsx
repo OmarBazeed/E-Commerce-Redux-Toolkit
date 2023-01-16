@@ -29,6 +29,7 @@ const navigate = useNavigate();
             setError('Failed To Sign Up')
         }
         setLoading(false)
+
     }
 
 return (

@@ -24,6 +24,8 @@ const handleSubmit =(e)=>{
   setLoading(true);
 
   if(currentUser.email !== emailRef.current.value ){
+    console.log(currentUser.email , emailRef.current.value)
+    console.log(currentUser)
     promises.push(updateUserEmail(emailRef.current.value))
   }
   if(passwordRef.current.value){
